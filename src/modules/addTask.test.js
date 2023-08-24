@@ -1,4 +1,10 @@
-import addTaskToList from './addTask'; 
+import addTaskToList from './addTask.js';
+
+const createTaskMock = require('./createTask.js').default;
+const getTasksMock = require('./getTasks.js').default;
+const updateTaskIndexesMock = require('./updateTaskIndexes.js').default;
+const saveTasksMock = require('./saveTasks.js').default;
+const renderListMock = require('./renderList.js').default;
 
 jest.mock('./createTask');
 jest.mock('./getTasks');
@@ -8,27 +14,21 @@ jest.mock('./renderList');
 
 describe('addTaskToList function', () => {
   it('Add a task, update indexes, save to local storage, and render the list', () => {
-  
     addTaskToList('New Task');
 
     // Assertions
-    const createTaskMock = require('./createTask').default;
     expect(createTaskMock).toHaveBeenCalledWith('New Task');
 
-    const getTasksMock = require('./getTasks').default;
     expect(getTasksMock.length).toBe(1); // Assuming one task was added
     expect(getTasksMock[0]).toEqual({
       description: 'New Task',
       index: 42,
     });
 
-    const updateTaskIndexesMock = require('./updateTaskIndexes').default;
     expect(updateTaskIndexesMock).toHaveBeenCalled();
 
-    const saveTasksMock = require('./saveTasks').default;
     expect(saveTasksMock).toHaveBeenCalled();
 
-    const renderListMock = require('./renderList').default;
     expect(renderListMock).toHaveBeenCalled();
   });
 });
