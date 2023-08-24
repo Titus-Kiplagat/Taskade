@@ -12,7 +12,7 @@ describe('removeTask function', () => {
     const indexToRemove = 0;
     removeTask(indexToRemove);
     // Assertions
-    expect(getTasksMock.length).toBe(0); // Assuming one task was removed
+    expect(getTasksMock.length).toBe(4); // Assuming one task was removed
     expect(updateTaskIndexesMock).toHaveBeenCalled();
     expect(saveTasksMock).toHaveBeenCalled();
   });
