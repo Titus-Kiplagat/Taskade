@@ -1,6 +1,7 @@
 const createTaskMock = jest.fn().mockImplementation((description) => ({
+  index: 0,
   description,
-  index: 42,
+  complete: false,
 }));
 
 export default createTaskMock;
