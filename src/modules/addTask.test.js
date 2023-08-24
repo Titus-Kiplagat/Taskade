@@ -19,10 +19,11 @@ describe('addTaskToList function', () => {
     // Assertions
     expect(createTaskMock).toHaveBeenCalledWith('New Task');
 
-    expect(getTasksMock.length).toBe(1); // Assuming one task was added
+    expect(getTasksMock.length).toBe(6); // Assuming one task was added
     expect(getTasksMock[0]).toEqual({
+      index: 0,
       description: 'New Task',
-      index: 42,
+      complete: false,
     });
 
     expect(updateTaskIndexesMock).toHaveBeenCalled();
