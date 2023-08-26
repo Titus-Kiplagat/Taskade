@@ -2,12 +2,12 @@ import tasks from './getTasks.js';
 import saveTasksToLocalStorage from './saveTasks.js';
 
 const toggleTaskCompletion = (checkboxId) => {
-  tasks.forEach((task) => {
-    if (task.index === checkboxId) {
-      task.complete = !task.complete;
-    }
-  });
-  saveTasksToLocalStorage();
+  const taskToToggle = tasks.find((task) => task.index === checkboxId);
+
+  if (taskToToggle) {
+    taskToToggle.complete = !taskToToggle.complete;
+    saveTasksToLocalStorage();
+  }
 };
 
 export default toggleTaskCompletion;
