@@ -224,7 +224,7 @@ button.refresh {
   font-family: var(--body-font);
 }
 
-@media screen and (width >= 768px) {
+@media screen and (width <= 768px) {
   .container {
     width: 30rem;
   }
